@@ -1,0 +1,41 @@
+[user]
+	email = noelledaley@users.noreply.github.com
+	name = Noelle Daley
+[alias]
+	c = commit -m
+	s = status
+	b = branch
+	co = checkout
+	n = checkout -b 
+	mine = rev-list --count HEAD ^main
+	up = pull origin main --rebase
+	uph = pull origin HEAD --rebase
+	p = push origin HEAD
+	ph = pull origin HEAD
+	pmast = pull origin main
+	rf = checkout origin/main
+  hist = log --pretty=format:'%Cred%h%Creset - %Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --max-count=10
+  wip = !git add . && git commit -m "WIP"
+  popwip = !git reset --soft head~1 && git reset head .
+	mend = commit --amend
+  nomend = commit --no-edit --amend
+	rb = rebase
+	rbi = rebase -i
+	rbc = rebase --continue
+	rba = rebase --abort
+	rbs = rebase --skip
+	rs = checkout origin/main 
+	cp = cherry-pick
+	alias = git config --get-regexp alias
+[core]
+	excludesfile = /Users/noelledaley/.gitignore_global
+	editor = code --wait
+[submodule]
+	recurse = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
