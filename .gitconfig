@@ -12,8 +12,7 @@
 	uph = pull origin HEAD --rebase
 	p = push origin HEAD
 	ph = pull origin HEAD
-	pmast = pull origin main
-	rf = checkout origin/main
+	pmain = pull origin main
   hist = log --pretty=format:'%Cred%h%Creset - %Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --max-count=10
   wip = !git add . && git commit -m "WIP"
   popwip = !git reset --soft head~1 && git reset head .
@@ -24,7 +23,6 @@
 	rbc = rebase --continue
 	rba = rebase --abort
 	rbs = rebase --skip
-	rs = checkout origin/main 
 	cp = cherry-pick
 	alias = git config --get-regexp alias
 [core]
@@ -39,3 +37,20 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[rebase]
+	autostash = true
+[push]
+	default = current
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = true
+[help]
+	autocorrect = 10
+[diff]
+	algorithm = histogram
+[fetch]
+	prune = true
+	prunetags = true
+[branch]
+	sort = -committerdate
